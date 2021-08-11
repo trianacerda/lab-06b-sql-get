@@ -1,14 +1,26 @@
 module.exports = [
   {
-    name: 'bessie',
-    cool_factor: 3,
+    id: 1,
+    name: 'Tala',
+    type: 'dog',
+    snuggly: true,
   },
   {
-    name: 'jumpy',
-    cool_factor: 4,
+    id: 2,
+    name: 'Tony',
+    type: 'cat',
+    snuggly: true,
   },
   {
-    name: 'spot',
-    cool_factor: 10,
-  }
+    id: 3,
+    name: 'Bella',
+    type: 'cat',
+    snuggly: true,
+  },
+  {
+    id: 4,
+    name: 'Luna',
+    type: 'dog',
+    snuggly: true,
+  },
 ];

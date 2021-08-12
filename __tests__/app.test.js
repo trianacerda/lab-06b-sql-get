@@ -67,5 +67,26 @@ describe('app routes', () => {
       // expect(data.body.id).toBeGreaterThan(0);
   
     });
+
+    test('POST /animals/:id --will create new animal into array', async ()=>{
+      const newAnimalInArray = {
+        id:5,
+        name: 'Leroy',
+        type: 'dog',
+        snuggly: true, 
+      };
+  
+      const data = await fakeRequest(app)
+        .put('/animals/5')
+        .send(newAnimalInArray)
+        .expect(200)
+        .expect('Content-Type', /json/);
+      // console.log(data.body);
+      expect(data.body.name).toEqual(newAnimalInArray.name);
+      expect(data.body.id).toBeGreaterThan(0);
+
+      // //check the data.body.id HERE
+  
+    });
   });
 });

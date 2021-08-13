@@ -88,5 +88,25 @@ describe('app routes', () => {
       // //check the data.body.id HERE
   
     });
+
+    test('DELETE /deletes one object in the array by query id', async () => {
+      const deletedObject = {
+
+        name: 'Leroy',
+        type: 'dog',
+        snuggly: true,
+      };
+      await fakeRequest(app)
+        .post('/animals')
+        .send(deletedObject)
+        .expect('Content-Type', /json/);
+      const data = await fakeRequest(app)
+        .delete('/animals/5')
+        .expect(200) 
+        .expect('Content-Type', /json/);
+      console.log(data.body);
+      expect(data.body).toEqual({ ...deletedObject, id:5 });
+      // expect(data.body.id).toBeGreaterThan(0);
+    });
   });
 });

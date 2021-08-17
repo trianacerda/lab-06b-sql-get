@@ -55,7 +55,7 @@ describe('app routes', () => {
         .expect('Content-Type', /json/)
         .expect(200);
       
-      expect(data.body[0]).toEqual(expectation);
+      expect(data.body).toEqual(expectation);
     });
 
     test('POST /create a new animal in animal data', async ()=>{

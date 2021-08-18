@@ -28,6 +28,7 @@ describe('app routes', () => {
         name: 'Tala',
         type_id: 1,
         snuggly: true,
+        type_name: 'dog'
       };
 
       const data = await fakeRequest(app)
@@ -48,6 +49,7 @@ describe('app routes', () => {
         name: 'Tala',
         type_id: 1,
         snuggly: true,
+        type_name: 'dog'
       };
       
       const data = await fakeRequest(app)
@@ -55,11 +57,12 @@ describe('app routes', () => {
         .expect('Content-Type', /json/)
         .expect(200);
       
-      expect(data.body[0]).toEqual(expectation);
+      expect(data.body).toEqual(expectation);
     });
 
     test('POST /create a new animal in animal data', async ()=>{
       const newAnimal = {
+        id: 4,
         name: 'Leroy',
         type_id: 1,
         snuggly: true, 
